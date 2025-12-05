@@ -12,6 +12,7 @@
                 <span class="text-xl text-white mr-5"> {{auth()->user()->name}}</span>
                 <button class="bg-neutral-600 px-8 py-2 rounded-md text-white mr-4 font-medium">English</button>
                 <form action="logout" method="POST">
+                    @csrf
                     <input type="submit" name="logout" value="Cerrar sesión" class="bg-gray-300 px-6 py-2 rounded-md text-black font-medium mr-5">
                 </form>
             </div>

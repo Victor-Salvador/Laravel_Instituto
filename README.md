@@ -10,7 +10,9 @@ composer require "laravel/breeze"
 Con currently creamos un nuevo script en package.json.
 
 añadimos a scripts la siguiente linea:
-***"local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\" "***
+````
+"local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\" "
+````
 
 ```json
 {
