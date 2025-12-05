@@ -24,7 +24,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        return view("alumnos.crear");
+        return view("alumnos.create");
     }
 
     /**
@@ -32,7 +32,9 @@ class AlumnoController extends Controller
      */
     public function store(StoreAlumnoRequest $request)
     {
-        //
+        $validated = $request->validated();
+        Alumno::create($validated);
+        return redirect()->route('alumnos.index');
     }
 
     /**
