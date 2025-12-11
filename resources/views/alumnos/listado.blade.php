@@ -21,13 +21,15 @@
                     <td>{{$alumno->created_at}}</td>
                     <td>{{$alumno->updated_at}}</td>
                     <td>
-                        <button class="bg-blue-600 cursor-pointer hover:bg-blue-400 py-3 px-4 text-white font-bold rounded-lg">Editar</button>
+                        <a href="{{route("alumnos.edit", $alumno->id)}}">
+                            <button class="bg-blue-600 cursor-pointer hover:bg-blue-400 py-3 px-4 text-white font-bold rounded-lg">Editar</button>
+                        </a>
                     </td>
                     <td>
-                        <form action="/alumnos/{{$alumno->id}}" method="POST">
+                        <form action="/alumnos/{{ $alumno->id }}" method="POST">
                             @method("DELETE")
                             @csrf
-                            <button type="submit" onclick="confirmarDelete(event)" class="bg-red-600 cursor-pointer hover:bg-red-400 py-3 px-4 text-white font-bold rounded-lg">Eliminar</button>
+                            <button type="submit" class="btnEliminar bg-red-600 cursor-pointer hover:bg-red-400 py-3 px-4 text-white font-bold rounded-lg">Eliminar</button>
                         </form>
                     </td>
                 </tr>
@@ -36,14 +38,33 @@
     </div>
 </x-layouts.layout>
 
-<script>
-    function confirmarDelete(event) {
-        event.preventDefault();
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        if (confirm("Seguro que quieres eliminar el registro")) {
-            event.target.closest("form").submit();
-        }
-    }
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const botonesEliminar = document.querySelectorAll('.btnEliminar');
+
+        botonesEliminar.forEach(boton => {
+            boton.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const form = this.closest('form');
+
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "Este alumno será eliminado permanentemente.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    });
 </script>
 
 

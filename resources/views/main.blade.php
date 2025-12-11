@@ -7,11 +7,16 @@
         <div class="hero-overlay"></div>
         <div class="hero-content text-neutral-content text-center">
             <div class="max-w-md">
-                <h1 class="mb-5 text-5xl font-bold">Bienvenido</h1>
+                <h1 class="mb-5 text-5xl font-bold">Aprendiendo Laravel</h1>
                 <p class="mb-5">
-                    Primer proyecto de Laravel
+                    Aplicación para aprender Laravel
                 </p>
-                <button class="btn btn-primary">Comenzar</button>
+                <hr>
+                <a href="register" class="cursor-pointer hover:text-blue-300"><p>Registrate para acceder a las opciones</p></a>
+                <a href="login">
+                    <button class="btn btn-primary mt-5">Login</button>
+                </a>
+
             </div>
         </div>
     </div>
@@ -21,13 +26,13 @@
                 <figure>
                     <img
                         src="{{asset("images/card.jpg")}}"
-                        alt="Shoes" class="w-full"/>
+                        alt="Alumnos" class="w-full"/>
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">Gestión Alumnos</h2>
                     <p>Gestiona los alumnos actuales, editalos y eliminalos</p>
                     <div class="card-actions justify-end">
-                        <a href="alumnos"><button class="btn btn-primary">Gestionar Alumnos</button></a>
+                        <a href="alumnos"><button class="btn btn-primary">Ver Alumnos</button></a>
                     </div>
                 </div>
             </div>

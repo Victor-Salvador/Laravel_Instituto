@@ -50,7 +50,8 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+
+        return view('alumnos.edit', compact('alumno'));
     }
 
     /**
@@ -58,7 +59,9 @@ class AlumnoController extends Controller
      */
     public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
-        //
+        $datos_alumno = $request->input();
+        $alumno->update($datos_alumno);
+        return redirect()->route('alumnos.index');
     }
 
     /**
@@ -67,8 +70,6 @@ class AlumnoController extends Controller
     public function destroy(Alumno $alumno)
     {
         $alumno->delete();
-        $alumnos = Alumno::all();
-        $campos = Schema::getColumnListing('alumnos');
-        return view("alumnos.listado", compact('alumnos', 'campos'));
+        return redirect()->route('alumnos.index');
     }
 }
