@@ -22,19 +22,27 @@
                     <td>{{$alumno->updated_at}}</td>
                     <td>
                         <a href="{{route("alumnos.edit", $alumno->id)}}">
-                            <button class="bg-blue-600 cursor-pointer hover:bg-blue-400 py-3 px-4 text-white font-bold rounded-lg">Editar</button>
+                            <button class="bg-blue-600 cursor-pointer hover:bg-blue-400 py-3 px-4 text-white font-bold rounded-lg">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </button>
                         </a>
                     </td>
                     <td>
                         <form action="/alumnos/{{ $alumno->id }}" method="POST">
                             @method("DELETE")
                             @csrf
-                            <button type="submit" class="btnEliminar bg-red-600 cursor-pointer hover:bg-red-400 py-3 px-4 text-white font-bold rounded-lg">Eliminar</button>
+                            <button type="submit" class="btnEliminar bg-red-600 cursor-pointer hover:bg-red-400 py-3 px-4 text-white font-bold rounded-lg">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </table>
+        <div class="flex items-center justify-center mt-10 mb-10">
+            {{$alumnos->links()}}
+        </div>
+
     </div>
 </x-layouts.layout>
 

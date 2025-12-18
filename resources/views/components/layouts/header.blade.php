@@ -13,8 +13,11 @@
                 <button class="bg-neutral-600 px-8 py-2 rounded-md text-white mr-4 font-medium">English</button>
                 <form action="logout" method="POST">
                     @csrf
-                    <input type="submit" name="logout" value="Cerrar sesión" class="bg-gray-300 px-6 py-2 rounded-md text-black font-medium mr-5">
+                    <input type="submit" name="logout" value="Cerrar sesión" class="bg-red-500 px-6 py-2 rounded-md text-black font-medium mr-5">
                 </form>
+                @role("admin")
+                <a href="register"><button class="bg-blue-300 hover:bg-blue-500 px-6 py-2 rounded-md text-black font-medium mr-4">Administrar</button></a>
+                @endrole
             </div>
             @endauth
     </div>
