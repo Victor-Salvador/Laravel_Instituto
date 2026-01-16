@@ -1,34 +1,5 @@
-# Proyecto de instituto
-Esto es una practica para el modulo de servidor
-
-## Instalo breeze
-para instalar ejecuto el comando
-````bash
-composer require "laravel/breeze"
-````
-## Script propio local
-Con currently creamos un nuevo script en package.json.
-
-añadimos a scripts la siguiente linea:
-````
-"local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\" "
-````
-
-```json
-{
-    "scripts": {
-        "build": "vite build",
-        "dev": "vite",
-        "local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\" "
-    } 
-}
-```
-
 # README - Proyecto Instituto
 
-Este README describe los pasos realizados para configurar el proyecto Laravel **Instituto** con autenticación, frontend con Tailwind/DaisyUI, gestión de roles, localización y modelos iniciales.
-
----
 
 ## 1. Crear el proyecto Laravel
 
@@ -40,7 +11,6 @@ composer global require laravel/installer
 
 # Crear el proyecto Laravel
 laravel new instituto
-cd instituto
 ```
 
 ---
@@ -56,7 +26,29 @@ php artisan breeze:install
 
 ---
 
-## 3. Crear modelos y migraciones
+## 3. Script local
+Instalamos Concurrently
+```bash
+npm install concurrently
+```
+>Con Concurrently creamos un nuevo script en package.json
+
+Añadimos a scripts la siguiente linea:
+````
+"local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\" "
+````
+
+```json
+{
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\" "
+    } 
+}
+```
+
+## 4. Crear modelos y migraciones
 
 Creamos el modelo `Alumno` con migraciones y controladores básicos:
 
@@ -66,7 +58,7 @@ php artisan migrate --seed
 ```
 ---
 
-## 4. Gestión de roles con Spatie Permission
+## 5. Gestión de roles con Spatie Permission
 
 Instalamos y configuramos Spatie para permisos y roles:
 
@@ -85,7 +77,7 @@ php artisan make:seeder UserSeeder
 
 ---
 
-## 5. Crear controladores
+## 6. Crear controladores
 
 Controladores creados:
 
@@ -98,7 +90,7 @@ php artisan make:controller LanguageController --invokable
 ```
 ---
 
-## 6. Localización
+## 7. Traducciones
 
 Instalamos paquetes para manejar múltiples idiomas:
 
@@ -111,16 +103,6 @@ php artisan lang:add en
 
 php artisan make:Middleware SetLanguageMiddleware
 ```
----
-
-## 7. Migraciones y seeds finales
-
-Para reiniciar la base de datos y poblarla con datos iniciales:
-
-```bash
-php artisan migrate:fresh --seed
-```
-
 ---
 
 
