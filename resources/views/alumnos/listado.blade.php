@@ -1,6 +1,6 @@
 <x-layouts.layout>
     <div class="overflow-x-auto h-full w-full">
-        <a href="{{ route('alumnos.create') }}">
+        <a href="{{ route('usuarios.create') }}">
             <button class="bg-green-600 cursor-pointer hover:bg-green-400 py-3 px-4 m-3 text-white font-bold rounded-lg">Añadir alumno</button>
         </a>
         <table class="table table-xs table-pin-rows table-pin-cols">
@@ -14,21 +14,21 @@
             @foreach($alumnos as $alumno)
                 <tr>
                     <td>{{$alumno->id}}</td>
-                    <td>{{$alumno->nombre}}</td>
+                    <td>{{$alumno->name}}</td>
                     <td>{{$alumno->apellido}}</td>
                     <td>{{$alumno->email}}</td>
                     <td>{{$alumno->fecha_nacimiento}}</td>
                     <td>{{$alumno->created_at}}</td>
                     <td>{{$alumno->updated_at}}</td>
                     <td>
-                        <a href="{{route("alumnos.edit", $alumno->id)}}">
+                        <a href="{{route("usuarios.edit", $alumno->id)}}">
                             <button class="bg-blue-600 cursor-pointer hover:bg-blue-400 py-3 px-4 text-white font-bold rounded-lg">
                                 <i class="fa-regular fa-pen-to-square"></i>
                             </button>
                         </a>
                     </td>
                     <td>
-                        <form action="/alumnos/{{ $alumno->id }}" method="POST">
+                        <form action="/usuarios/{{ $alumno->id }}" method="POST">
                             @method("DELETE")
                             @csrf
                             <button type="submit" class="btnEliminar bg-red-600 cursor-pointer hover:bg-red-400 py-3 px-4 text-white font-bold rounded-lg">

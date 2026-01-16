@@ -1,6 +1,6 @@
 <x-layouts.layout>
     <div class="bg-blue-200 h-full flex justify-center items-center">
-        <form id="createAlumnoForm" method="POST" action="{{ route('alumnos.store') }}" class="bg-white rounded-lg p-10 flex flex-col w-75">
+        <form id="createAlumnoForm" method="POST" action="{{ route('usuarios.store') }}" class="bg-white rounded-lg p-10 flex flex-col w-75">
             @csrf
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" id="nombre" class="border p-2" value="{{ old('nombre') }}" required>

@@ -22,7 +22,7 @@ class UpdateAlumnoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'fecha_nacimiento' => 'required|date',

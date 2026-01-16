@@ -14,19 +14,19 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory()->count(5)->create()->each(function ($user) {
-            $user->assignRole(config('alumno'));
+            $user->assignRole('alumno');
         });
         User::factory()->count(5)->create()->each(function ($user) {
-            $user->assignRole(config('profesor'));
+            $user->assignRole('profesor');
         });
 
         $user = User::create([
             'name' => 'admin',
             'fecha_nacimiento' => now(),
             'apellido' => 'admin',
-            'email' => 'a@a',
+            'email' => 'a@a.com',
             'password' => bcrypt('admin'),
         ]);
-        $user->assignRole(config('admin'));
+        $user->assignRole('admin');
     }
 }

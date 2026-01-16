@@ -1,10 +1,10 @@
 <x-layouts.layout>
     <div class="bg-blue-200 h-full flex justify-center items-center">
-        <form id="editAlumnoForm" method="POST" action="{{ route('alumnos.update', $alumno->id) }}" class="bg-white rounded-lg p-10 flex flex-col w-75">
+        <form id="editAlumnoForm" method="POST" action="{{ route('usuarios.update', $alumno->id) }}" class="bg-white rounded-lg p-10 flex flex-col w-75">
             @csrf
             @method("PATCH")
             <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre" class="border p-2" value="{{ $alumno->nombre}}" required>
+            <input type="text" name="name" id="name" class="border p-2" value="{{ $alumno->name}}" required>
             @error('nombre')
             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
